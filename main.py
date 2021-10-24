@@ -21,36 +21,10 @@ outputValueValidate = []
 for row in inputValue:
     rowElemMainI = []
     rowElemMainO = []
-    rowElemI = []
-    rowElemO = []
-    check = False
     k = 0
     ran = randint(0, 27)
-    error = 0
     for item in row:
         item = round(item / 100.0, 4)
-
-        if k % 2 == 1:
-            if k == 1:
-                if math.fabs(round(row[27] / 100.0, 4) - item) >= 0.07 and math.fabs(round(row[3] / 100.0, 4) - item) >= 0.07:
-                    error += 1
-            elif k == 27:
-                if math.fabs(round(row[25] / 100.0, 4) - item) >= 0.07 and math.fabs(round(row[1] / 100.0, 4) - item) >= 0.07:
-                    error += 1
-            elif math.fabs(round(row[k+2] / 100.0, 4) - item) >= 0.07 and math.fabs(round(row[k-2] / 100.0, 4) - item) >= 0.07:
-                error += 1
-
-        else:
-            if k == 0:
-                if math.fabs(round(row[26] / 100.0, 4) - item) >= 0.07 and math.fabs(round(row[2] / 100.0, 4) - item) >= 0.07:
-                    error += 1
-
-            elif k == 26:
-                if math.fabs(round(row[24] / 100.0, 4) - item) >= 0.07 and math.fabs(round(row[0] / 100.0, 4) - item) >= 0.07:
-                    error += 1
-            elif math.fabs(round(row[k+2] / 100.0, 4) - item) >= 0.07 and math.fabs(round(row[k-2] / 100.0, 4) - item) >= 0.07:
-                error += 1
-
 
         if k == ran:
             rowElemMainO.append(item)
@@ -59,9 +33,8 @@ for row in inputValue:
 
         k += 1
 
-    if not error > 1:
-        inputValueValidate.append(rowElemMainI)
-        outputValueValidate.append(rowElemMainO)
+    inputValueValidate.append(rowElemMainI)
+    outputValueValidate.append(rowElemMainO)
 
 
 
